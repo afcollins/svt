@@ -22,11 +22,11 @@
         "resources": {
 				"requests": {
 					"cpu" : "50m",
-					"memory": "100Mi"
+					"memory": "10Mi"
 				},
 				"limits": {
-					"cpu" : "400m",
-					"memory": "400Mi"
+					"cpu" : "50m",
+					"memory": "100Mi"
 				}
         },
         "terminationMessagePath": "/dev/termination-log",

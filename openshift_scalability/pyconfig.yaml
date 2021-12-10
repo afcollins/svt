@@ -1,5 +1,5 @@
 projects:
-  - num: 1
+  - num: 2
     basename: clusterproject
     ifexists: reuse
     tuning: default
@@ -10,33 +10,29 @@ projects:
         password: demo
         userpassfile: openshift-passwd
     services:
-      - num: 3
+      - num: 1
         file: default
         basename: testservice
     rcs:
       - num: 2
-        replicas: 5
+        replicas: 1
         file: default
         basename: testrc
         image: registry.redhat.io/openshift4/ose-hello-openshift-rhel8
     pods:
-      - total: 10
-      - num: 40
+      - total: 2
+      - num: 100
         image: registry.redhat.io/openshift4/ose-hello-openshift-rhel8
         basename: hellopods
         file: default
         storage:
           - type: none 
-      - num: 60
-        image: registry.redhat.io/rhscl/python-38-rhel7:latest
-        basename: pyrhelpods
-        file: default
 
 tuningsets:
   - name: default
     pods:
       stepping:
         stepsize: 5
-        pause: 1s
+        pause: 1 s
       rate_limit:
         delay: 250 ms

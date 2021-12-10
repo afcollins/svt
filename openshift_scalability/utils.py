@@ -301,7 +301,8 @@ def create_pods(podcfg, num, storagetype, globalvars):
         else:
             check = oc_command("oc create -f " + tmpfile.name, \
                 globalvars)
-            print( check )
+            if check[2] != 0 :
+              print( check )
         pend_pods.append(podname)
 
         if "tuningset" in globalvars:
@@ -333,14 +334,14 @@ def pod_data(globalvars):
         else:
             getpods = oc_command("oc get pods -n " + namespace, globalvars)
         all_status = str(getpods[0]).split("\\n")
-        print( all_status )
+        # print( all_status )
         size = len(all_status)
-        print( "all_status size: " , size )
-        print( pend_pods )
+        # print( "all_status size: " , size )
+        # print( pend_pods )
         all_status = all_status[1:size - 1]
         for status in all_status:
             fields = status.split()
-            print( "Fields " , fields )
+            # print( "Fields " , fields )
             if fields[2] == "Running" and fields[0] in pend_pods:
                 pend_pods.remove(fields[0])
         if len(pend_pods) > 0:
@@ -555,8 +556,8 @@ def project_handler(testconfig, globalvars):
                 if "ifexists" not in testconfig:
                     logger.info("Parameter 'ifexists' not specified. Using 'default' value.")
                     testconfig["ifexists"] = "default"
-                if testconfig["ifexists"] != "reuse" :
-                    projname = basename + str(i)
+                # if testconfig["ifexists"] != "reuse" :
+                projname = basename + str(i)
 
                 logger.info("forking %s"%projname)
                 single_project(testconfig, projname, globalvars)
