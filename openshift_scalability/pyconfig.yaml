@@ -1,5 +1,5 @@
 projects:
-  - num: 2
+  - num: 500
     basename: clusterproject
     ifexists: reuse
     tuning: default
