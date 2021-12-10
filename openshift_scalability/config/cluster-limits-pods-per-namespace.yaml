@@ -1,6 +1,7 @@
 projects:
   - num: 1
     basename: clusterproject
+    ifexists: reuse
     nodeselector: "node-role.kubernetes.io/worker="
     tuning: default
     pods:
@@ -10,7 +11,7 @@ projects:
         basename: pausepods
         file: content/pod-pause.json
         storage:
-          - type: none
+          - type: None
           
 quotas:
   - name: default
