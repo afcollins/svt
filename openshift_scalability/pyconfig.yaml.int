@@ -1,9 +1,9 @@
 projects:
   - num: 1000
-    basename: clusterproject-ext-
+    basename: clusterproject-
     ifexists: reuse
     tuning: default
-    nodeselector: environment=ext-nonprod
+    nodeselector: environment=int-nonprod
     users:
       - num: 2
         role: admin
